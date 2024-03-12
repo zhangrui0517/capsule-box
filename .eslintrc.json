@@ -1,0 +1,57 @@
+{
+    // 定义当前代码运行的环境，这里指定了浏览器环境、ES2021 标准和 React 环境
+    "env": {
+      "browser": true,
+      "es2021": true,
+      "react": true
+    },
+
+    // 指定使用 TypeScript 的 ESLint 解析器
+    "parser": "@typescript-eslint/parser",
+
+    // 设置解析器选项，包括支持 JSX 语法、指定 TypeScript 配置文件以及模块化源码类型
+    "parserOptions": {
+      "ecmaFeatures": {
+        "jsx": true
+      },
+      "project": "./tsconfig.json",
+      "sourceType": "module"
+    },
+
+    // 加载需要使用的插件
+    "plugins": [
+      "@typescript-eslint", // TypeScript 相关插件
+      "react", // React 相关插件
+      "prettier" // Prettier 格式化插件，用于处理格式相关的规则冲突
+    ],
+
+    // 继承已有的配置集，包括基本推荐规则、TypeScript 和 React 推荐规则以及与 Prettier 兼容的规则
+    "extends": [
+      "eslint:recommended", // ESLint 基础推荐规则
+      "plugin:@typescript-eslint/recommended", // TypeScript 推荐规则
+      "plugin:react/recommended", // React 推荐规则
+      "prettier/react", // 适用于 React 且兼容 Prettier 的风格规则
+      "prettier/@typescript-eslint" // 解决 TypeScript 与 Prettier 规则之间的冲突
+    ],
+
+    // 自定义规则配置
+    "rules": {
+      // 不允许使用分号作为语句结束符
+      "semi": ["error", "never"],
+
+      // 强制使用单引号（'）包裹字符串
+      "quotes": ["error", "single", { "avoidEscape": true }],
+
+      // 配置 Prettier 规则，使其与上面的规范一致
+      // 这里设置为单引号、逗号在对象或数组最后一项后添加、tabWidth 为特定值，并启用 Tab 缩进
+      "prettier/prettier": [
+        "error",
+        {
+          "singleQuote": true, // 使用单引号
+          "trailingComma": "es5", // 在对象和数组最后一个元素后面添加逗号
+          "tabWidth": 2, // 指定 Tab 的显示宽度，如果实际使用 tab 缩进，请确保你的编辑器能正确处理
+          "useTabs": true // 使用 Tab 进行缩进
+        }
+      ]
+    }
+  }

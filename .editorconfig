@@ -1,0 +1,20 @@
+# 适用所有文件
+[*]
+# 设置换行符为 LF（适用于 Unix/Linux 系统）
+end_of_line = lf
+# 设置缩进为 4 个空格
+indent_style = space
+indent_size = 4
+# 删除行尾空白
+trim_trailing_whitespace = true
+# 保存时转换 tabs 为空格
+insert_final_newline = true
+charset = utf-8
+
+# 对于特定类型的文件进行特殊设置
+[*.md]
+trim_trailing_whitespace = false
+
+[*.js, *.jsx, *.ts, *.tsx]
+indent_size = 2
+quote_type = single
